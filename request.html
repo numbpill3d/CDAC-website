@@ -18,6 +18,7 @@
             line-height: 1.6;
             color: #2c3e50;
             background: #ffffff;
+            overflow-x: hidden;
         }
         
         .top-bar {
@@ -30,7 +31,7 @@
         .top-bar .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -39,7 +40,7 @@
         .top-bar a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 15px;
         }
         
         .top-bar a:hover {
@@ -57,7 +58,7 @@
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px 30px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -66,12 +67,12 @@
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
         
         .logo {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background: linear-gradient(135deg, #1a4d2e 0%, #2d7a4f 100%);
             border-radius: 8px;
             display: flex;
@@ -79,7 +80,8 @@
             justify-content: center;
             font-weight: 700;
             color: white;
-            font-size: 24px;
+            font-size: 22px;
+            flex-shrink: 0;
         }
         
         .org-name {
@@ -88,14 +90,14 @@
         }
         
         .org-name h1 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             color: #1a4d2e;
             margin-bottom: 2px;
         }
         
         .org-name .tagline {
-            font-size: 12px;
+            font-size: 11px;
             color: #6c757d;
             font-weight: 400;
         }
@@ -103,15 +105,16 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
         
         nav a {
             color: #2c3e50;
             text-decoration: none;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 14px;
             transition: color 0.3s;
+            white-space: nowrap;
         }
         
         nav a:hover {
@@ -121,13 +124,13 @@
         .page-hero {
             background: linear-gradient(135deg, #1a4d2e 0%, #2d7a4f 100%);
             color: white;
-            padding: 60px 30px;
+            padding: 50px 20px;
             text-align: center;
         }
         
         .page-hero h2 {
             font-family: 'Lora', serif;
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 600;
             margin-bottom: 15px;
         }
@@ -135,21 +138,24 @@
         .page-hero p {
             font-size: 18px;
             opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 0 20px;
         }
         
         .main-content {
-            padding: 70px 30px;
+            padding: 60px 0;
         }
         
         .content-section {
             max-width: 900px;
             margin: 0 auto 50px;
+            padding: 0 20px;
         }
         
         .content-section h3 {
@@ -196,6 +202,7 @@
             border-radius: 8px;
             padding: 25px;
             transition: all 0.3s;
+            height: 100%;
         }
         
         .eligibility-card:hover {
@@ -241,6 +248,7 @@
             border-radius: 8px;
             padding: 25px;
             text-align: center;
+            height: 100%;
         }
         
         .device-type h5 {
@@ -323,7 +331,7 @@
         .cta-section {
             background: linear-gradient(135deg, #1a4d2e 0%, #2d7a4f 100%);
             color: white;
-            padding: 60px 30px;
+            padding: 60px 20px;
             text-align: center;
             margin-top: 50px;
         }
@@ -338,6 +346,9 @@
             font-size: 18px;
             margin-bottom: 30px;
             opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .cta-button {
@@ -361,7 +372,7 @@
         footer {
             background: #2c3e50;
             color: white;
-            padding: 50px 30px 30px;
+            padding: 50px 20px 30px;
         }
         
         .footer-content {
@@ -401,26 +412,161 @@
             color: rgba(255,255,255,0.6);
         }
         
+        /* Responsive Design Improvements */
+        @media (max-width: 992px) {
+            .page-hero h2 {
+                font-size: 32px;
+            }
+            
+            .cta-section h3 {
+                font-size: 28px;
+            }
+            
+            .content-section h3 {
+                font-size: 26px;
+            }
+            
+            .request-steps {
+                padding: 30px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
+                padding: 15px 20px;
             }
             
             nav ul {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
             }
             
             .page-hero h2 {
-                font-size: 32px;
+                font-size: 28px;
+            }
+            
+            .page-hero p {
+                font-size: 16px;
             }
             
             .top-bar .container {
                 flex-direction: column;
                 gap: 10px;
                 text-align: center;
+            }
+            
+            .top-bar a {
+                margin: 0 8px;
+            }
+            
+            .cta-section h3 {
+                font-size: 24px;
+            }
+            
+            .content-section h3 {
+                font-size: 24px;
+            }
+            
+            .eligibility-grid,
+            .device-types {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .request-steps {
+                padding: 25px 20px;
+            }
+            
+            .step-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .step-number {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+            
+            .info-box,
+            .availability-notice {
+                padding: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .main-content {
+                padding: 40px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-hero {
+                padding: 40px 15px;
+            }
+            
+            .page-hero h2 {
+                font-size: 24px;
+            }
+            
+            .page-hero p {
+                font-size: 15px;
+            }
+            
+            nav ul {
+                gap: 10px;
+            }
+            
+            nav a {
+                font-size: 13px;
+            }
+            
+            .logo-area {
+                gap: 10px;
+            }
+            
+            .logo {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            .org-name h1 {
+                font-size: 16px;
+            }
+            
+            .org-name .tagline {
+                font-size: 10px;
+            }
+            
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 15px;
+            }
+            
+            .content-section {
+                padding: 0 15px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .top-bar .container {
+                font-size: 12px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .page-hero h2 {
+                font-size: 22px;
             }
         }
     </style>
@@ -435,7 +581,7 @@
                 <a href="donate.html">Donate</a>
             </div>
         </div>
-    </header>
+    </div>
     
     <header>
         <div class="header-content">
@@ -577,13 +723,13 @@
                 <div class="info-box">
                     <h4>What is Included</h4>
                     <p>All devices we provide have been:</p>
-                    <ul style="margin-left: 25px; margin-top: 10px;">
+                    <ul style="margin-left: 25px; margin-top: 10px; margin-bottom: 15px;">
                         <li>Securely wiped and tested</li>
                         <li>Equipped with a fresh operating system (typically Xubuntu Linux or Windows when licensed)</li>
                         <li>Verified to be in working condition</li>
                         <li>Provided with power adapters and basic peripherals when available</li>
                     </ul>
-                    <p style="margin-top: 15px;"><strong>Please note:</strong> Devices are provided as-is without warranty. While we test everything thoroughly, older refurbished equipment may have cosmetic wear and limited remaining lifespan.</p>
+                    <p><strong>Please note:</strong> Devices are provided as-is without warranty. While we test everything thoroughly, older refurbished equipment may have cosmetic wear and limited remaining lifespan.</p>
                 </div>
             </div>
             
