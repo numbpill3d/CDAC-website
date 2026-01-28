@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carolina Digital Access Coalition | Bridging the Digital Divide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+        
+        .top-bar {
+            background: #1a4d2e;
+            color: white;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
+        
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1a4d2e 0%, #2d7a4f 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .org-name {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .org-name h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a4d2e;
+            margin-bottom: 2px;
+        }
+        
+        .org-name .tagline {
+            font-size: 12px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #1a4d2e;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1a4d2e 0%, #2d7a4f 100%);
+            color: white;
+            padding: 80px 30px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-family: 'Lora', serif;
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #1a4d2e;
+            padding: 14px 32px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        .section {
+            padding: 70px 30px;
+        }
+        
+        .section-title {
+            font-family: 'Lora', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: #1a4d2e;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #6c757d;
+            font-size: 18px;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .mission-statement {
+            background: #f8f9fa;
+            padding: 40px;
+            border-left: 5px solid #1a4d2e;
+            margin-bottom: 50px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 35px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a4d2e;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .updates-section {
+            background: #f8f9fa;
+        }
+        
+        .updates-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .update-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1a4d2e;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .update-date {
+            font-size: 13px;
+            color: #6c757d;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .update-content {
+            font-size: 16px;
+            color: #2c3e50;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            padding: 35px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+        
+        .service-card h3 {
+            color: #1a4d2e;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .service-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .service-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1a4d2e;
+            font-weight: 700;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #1a4d2e 0%, #2d7a4f 100%);
+            color: white;
+            text-align: center;
+            padding: 70px 30px;
+        }
+        
+        .cta-section h2 {
+            font-family: 'Lora', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .cta-button-secondary {
+            display: inline-block;
+            background: transparent;
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid white;
+            border-radius: 6px;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+        
+        .cta-button-secondary:hover {
+            background: white;
+            color: #1a4d2e;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 30px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 2;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .top-bar .container {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div>📧 donate@carolinadigitalaccess.org | 📞 (980) 555-0142</div>
+            <div>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#donate">Donate</a>
+            </div>
+        </div>
+    </div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <div class="logo">CD</div>
+                <div class="org-name">
+                    <h1>Carolina Digital Access Coalition</h1>
+                    <span class="tagline">Bridging the Digital Divide</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#donate">Donate Equipment</a></li>
+                    <li><a href="#request">Request Device</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Technology Should Be Accessible to Everyone</h2>
+            <p>We refurbish donated computer equipment and provide it to students, learners, and communities who need it most. Together, we can keep functional hardware out of landfills and in the hands of people who need it.</p>
+            <a href="#donate" class="cta-button">Donate Equipment Today</a>
+        </div>
+    </section>
+    
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Our Mission</h2>
+            <p class="section-subtitle">Every piece of technology has the potential to change a life</p>
+            
+            <div class="mission-statement">
+                The Carolina Digital Access Coalition refurbishes donated computer equipment and redistributes it to students, learners, and communities without reliable access to technology. We believe functional hardware shouldn't end up in landfills when it could end up in hands. Based in Charlotte, NC, we accept equipment donations regionally and nationwide.
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Equipment We Accept</h3>
+                    <ul>
+                        <li>Business-class laptops (ThinkPad, Dell Latitude, HP EliteBook)</li>
+                        <li>Desktop computers</li>
+                        <li>Monitors and displays</li>
+                        <li>Keyboards, mice, and peripherals</li>
+                        <li>Networking equipment</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Our Process</h3>
+                    <ul>
+                        <li>Secure data wiping (DOD 5220.22-M standard)</li>
+                        <li>Hardware diagnostics and repair</li>
+                        <li>Operating system installation</li>
+                        <li>Quality testing and verification</li>
+                        <li>Distribution to qualified recipients</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Who We Help</h3>
+                    <ul>
+                        <li>Students from low-income families</li>
+                        <li>Community learning centers</li>
+                        <li>Nonprofit organizations</li>
+                        <li>Job training programs</li>
+                        <li>Seniors and adult learners</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="impact" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <p class="section-subtitle">Real numbers, real change in our community</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">147</div>
+                    <div class="stat-label">Devices Refurbished</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">23</div>
+                    <div class="stat-label">Partner Organizations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8,200</div>
+                    <div class="stat-label">Pounds of E-Waste Diverted</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">94%</div>
+                    <div class="stat-label">Equipment Recovery Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section updates-section">
+        <div class="container">
+            <h2 class="section-title">Recent Updates</h2>
+            <p class="section-subtitle">Stay informed about our latest activities and partnerships</p>
+            
+            <div class="updates-list">
+                <div class="update-item">
+                    <div class="update-date">January 15, 2026</div>
+                    <div class="update-content">Received a donation of 12 ThinkPad T440s laptops from Gaston County Schools. These devices are currently undergoing secure data wiping and diagnostics testing before being refurbished for distribution.</div>
+                </div>
+                
+                <div class="update-item">
+                    <div class="update-date">January 3, 2026</div>
+                    <div class="update-content">Successfully refurbished and deployed 8 Dell Latitude E7450 systems with Xubuntu 22.04 LTS. These computers are now available for qualified requests from community organizations and individuals in need.</div>
+                </div>
+                
+                <div class="update-item">
+                    <div class="update-date">December 20, 2025</div>
+                    <div class="update-content">Announced new partnership with Carolina Pride Recycling to improve equipment pickup logistics across the Charlotte metropolitan area. This collaboration will help us serve more donors efficiently.</div>
+                </div>
+                
+                <div class="update-item">
+                    <div class="update-date">December 8, 2025</div>
+                    <div class="update-content">Delivered 15 refurbished computers to the West Charlotte Community Learning Center. Feedback from students and instructors has been overwhelmingly positive.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section" id="donate">
+        <div class="container">
+            <h2>Ready to Make a Difference?</h2>
+            <p>If your school, business, or organization is retiring computer equipment, we'll handle pickup and provide documentation for your records.</p>
+            <a href="mailto:donate@carolinadigitalaccess.org" class="cta-button">Contact Us About Donations</a>
+            <a href="#request" class="cta-button-secondary">Request a Device</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Carolina Digital Access Coalition</h4>
+                <p>A volunteer-run initiative dedicated to bridging the digital divide in the Carolinas through equipment refurbishment and redistribution.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: donate@carolinadigitalaccess.org<br>
+                Phone: (980) 555-0142<br>
+                Location: Charlotte, NC</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <p>
+                    <a href="#about">About Us</a><br>
+                    <a href="#donate">Donate Equipment</a><br>
+                    <a href="#request">Request Device</a><br>
+                    <a href="#impact">Our Impact</a>
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Data Security</h4>
+                <p>All donated drives are securely wiped using DOD 5220.22-M standards before redistribution. Your data security is our priority.</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 Carolina Digital Access Coalition. Not a registered 501(c)(3). Volunteer-operated initiative. All equipment donations accepted as-is.</p>
+        </div>
+    </footer>
+</body>
+</html>
